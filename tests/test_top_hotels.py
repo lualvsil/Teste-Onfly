@@ -18,6 +18,7 @@ def test_top_hotels_are_ranked_descending(tmp_path):
     assert [hotel["hotel_id"] for hotel in report["top_hotels"]] == ["H01", "H02", "H03"]
     assert [hotel["total_brl"] for hotel in report["top_hotels"]] == ["1000.00", "900.00", "800.00"]
 
+
 def test_top_hotels_tie_breaks_by_hotel_id(tmp_path):
     report = run_cli(
         tmp_path,
@@ -32,4 +33,3 @@ def test_top_hotels_tie_breaks_by_hotel_id(tmp_path):
     )
     assert [hotel["hotel_id"] for hotel in report["top_hotels"]] == ["H01", "H02", "H03"]
     assert [hotel["total_brl"] for hotel in report["top_hotels"]] == ["1000.00", "900.00", "800.00"]
-
